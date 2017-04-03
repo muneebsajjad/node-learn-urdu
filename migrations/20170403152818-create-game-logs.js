@@ -19,13 +19,13 @@ module.exports = {
             updatedAt: {
                 type: Sequelize.DATE
             },
-            device_id: {type: Sequelize.INTEGER,allowNull: false},
+            device_id: {type: Sequelize.STRING,allowNull: false},
             sound_played: {type: Sequelize.STRING,allowNull: false},
             sound_selected: {type: Sequelize.STRING,allowNull: false},
-            device_timestamp: {type: Sequelize.STRING,allowNull: false},
+            device_timestamp: {type: Sequelize.DATE,allowNull: false},
             status: {type: Sequelize.BOOLEAN,allowNull: false},
-            score: {type: Sequelize.STRING,allowNull: false},
-            lives: {type: Sequelize.STRING,allowNull: false},
+            score: {type: Sequelize.INTEGER,allowNull: false},
+            lives: {type: Sequelize.INTEGER,allowNull: false},
         });
 
     },
