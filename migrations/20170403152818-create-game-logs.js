@@ -23,7 +23,7 @@ module.exports = {
             sound_played: {type: Sequelize.STRING,allowNull: false},
             sound_selected: {type: Sequelize.STRING,allowNull: false},
             device_timestamp: {type: Sequelize.DATE,allowNull: false},
-            status: {type: Sequelize.BOOLEAN,allowNull: false},
+            status: {type: Sequelize.INTEGER,allowNull: false},
             score: {type: Sequelize.INTEGER,allowNull: false},
             lives: {type: Sequelize.INTEGER,allowNull: false},
         });
