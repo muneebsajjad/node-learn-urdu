@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 var Sequelize = require('sequelize');
-var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
+// var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
+var sequelize = new Sequelize('postgres://postgres:muneeb123@localhost:5432/learn_urdu_development');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -40,7 +41,7 @@ router.post('/get_sync_data', function (req, res) {
 	logData.forEach( function (Item)
 	{
 	    //console.log(Item.LIVES)
-	   valueString.push(`('${moment().format()}','${moment().format()}','${Item.DEVICE_ID}', '${Item.SOUND_PLAYED}', '${Item.SOUND_SELECTED}', '${Item.TIMESTAMP}', ${Item.STATUS},${Item.SCORE},${Item.LIVES})`);
+	   valueString.push(`('${moment().format()}','${moment().format()}','${Item.SESSION_ID}','${Item.DEVICE_ID}','${Item.SOUND_PLAYED}', '${Item.SOUND_SELECTED}', '${Item.TIMESTAMP}', ${Item.STATUS},${Item.SCORE},${Item.LIVES})`);
 	   returnIds.push(Item.ID);
 	});
 
@@ -52,7 +53,7 @@ router.post('/get_sync_data', function (req, res) {
     return sequelize.transaction(function (t) {
     	/*console.log(`INSERT INTO game_logs ("createdAt","updatedAt",device_id, sound_played, sound_selected, device_timestamp, status, score, lives) 
 					VALUES ${valueString}`);*/
-  			return sequelize.query(`INSERT INTO game_logs ("createdAt","updatedAt",device_id, sound_played, sound_selected, device_timestamp, status, score, lives) 
+  			return sequelize.query(`INSERT INTO game_logs ("createdAt", "updatedAt", session_id, device_id, sound_played, sound_selected, device_timestamp, status, score, lives) 
 					VALUES ${valueString}`).spread(function(results, metadata) {
   					console.log(">>>>>>>>>>>>>>>>>>>"+results);
   
