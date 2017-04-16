@@ -19,6 +19,7 @@ module.exports = {
             updatedAt: {
                 type: Sequelize.DATE
             },
+            session_id: {type: Sequelize.STRING,allowNull: false},
             device_id: {type: Sequelize.STRING,allowNull: false},
             sound_played: {type: Sequelize.STRING,allowNull: false},
             sound_selected: {type: Sequelize.STRING,allowNull: false},
