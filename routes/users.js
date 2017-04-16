@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 var Sequelize = require('sequelize');
-// var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
-var sequelize = new Sequelize('postgres://postgres:muneeb123@localhost:5432/learn_urdu_development');
+ var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
+//var sequelize = new Sequelize('postgres://postgres:muneeb123@localhost:5432/learn_urdu_development');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -55,7 +55,7 @@ router.post('/get_sync_data', function (req, res) {
 					VALUES ${valueString}`);*/
   			return sequelize.query(`INSERT INTO game_logs ("createdAt", "updatedAt", session_id, device_id, sound_played, sound_selected, device_timestamp, status, score, lives) 
 					VALUES ${valueString}`).spread(function(results, metadata) {
-  					console.log(">>>>>>>>>>>>>>>>>>>"+results);
+  					//console.log(">>>>>>>>>>>>>>>>>>>"+results);
   
 		}).then(function (result) {
 		  // Transaction has been committed
