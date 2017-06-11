@@ -40,7 +40,7 @@ router.post('/get_sync_data', function (req, res) {
 	var returnIds = [];
 	logData.forEach( function (Item)
 	{
-		if (typeof Item.OPTIONS_PRESENTED == 'undefined'){
+		if (typeof Item.OPTIONS_PRESENTED == 'undefined' || Item.OPTIONS_PRESENTED == ''){
 			Item.OPTIONS_PRESENTED = "";
 			Item.CYCLE_COUNT = "";
 		}
