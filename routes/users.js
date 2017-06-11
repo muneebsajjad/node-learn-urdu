@@ -40,11 +40,12 @@ router.post('/get_sync_data', function (req, res) {
 	var returnIds = [];
 	logData.forEach( function (Item)
 	{
-		if (typeof Item.OPTIONS_PRESENTED == 'undefined' || Item.OPTIONS_PRESENTED == ''){
+		if (typeof Item.OPTIONS_PRESENTED == 'undefined' || Item.OPTIONS_PRESENTED == ''|| Item.OPTIONS_PRESENTED == null){
+			console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+Item.OPTIONS_PRESENTED);
 			Item.OPTIONS_PRESENTED = "";
 			Item.CYCLE_COUNT = "";
 		}
-	    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+Item.OPTIONS_PRESENTED);
+	    
 	   valueString.push(`('${moment().format()}','${moment().format()}','${Item.SESSION_ID}','${Item.DEVICE_ID}','${Item.SOUND_PLAYED}', '${Item.SOUND_SELECTED}', '${Item.TIMESTAMP}', ${Item.STATUS},${Item.SCORE},${Item.LIVES},'${Item.OPTIONS_PRESENTED}',${Item.CYCLE_COUNT})`);
 	   returnIds.push(Item.ID);
 	});
