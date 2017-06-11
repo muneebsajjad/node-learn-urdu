@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 var Sequelize = require('sequelize');
- // var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
-var sequelize = new Sequelize('postgres://postgres:muneeb123@localhost:5432/learn_urdu_development');
+  var sequelize = new Sequelize('postgres://postgres:muneeb49@localhost:5432/learn_urdu_production');
+//var sequelize = new Sequelize('postgres://postgres:muneeb123@localhost:5432/learn_urdu_development');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
